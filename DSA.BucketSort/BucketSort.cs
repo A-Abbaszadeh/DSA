@@ -16,13 +16,8 @@ public class BucketSort<T> where T : INumber<T>
             buckets[i] = new List<T>();
         }
 
-
         foreach (var item in A)
         {
-            //int tens = (int)(Convert.ToDouble(item) / tensGetter);
-            //dynamic value = item;
-            //int tens = (int)(value / tensGetter);
-
             int tens = GetRadix(item, radix: 10);
             buckets[tens].Add(item);
         }
@@ -32,9 +27,9 @@ public class BucketSort<T> where T : INumber<T>
         return buckets;
     }
 
-    private int GetRadix(T item, int radix)
+    private int GetRadix(T input, int radix)
     {
-        dynamic value = item;
+        dynamic value = input;
         return (int)(value / radix);
     }
 }
